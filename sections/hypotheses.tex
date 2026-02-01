@@ -1,0 +1,34 @@
+% sections/hypotheses.tex
+
+\section{Design Claims and Research Hypotheses}
+\label{sec:hypotheses}
+
+As a specification-focused contribution, this paper does not present empirical evaluations of ADL~2.0 in deployed systems. Instead, we articulate a set of design claims and corresponding research hypotheses that are motivated by the language design and by lessons learned from prior work on assistant specification. These hypotheses are intended to guide future empirical validation efforts in educational and collaborative contexts.
+
+\subsection{Design Claims}
+The design of ADL~2.0 is based on several core claims regarding the benefits of explicit, declarative assistant specification.
+
+First, we claim that treating assistant configuration as a structured specification artifact, rather than as unstructured prompt text, improves clarity, reuse, and maintainability. By making roles, collaboration models, and boundaries explicit, ADL~2.0 aims to reduce ambiguity in assistant behavior and facilitate systematic comparison across assistant designs.
+
+Second, we claim that a minimal, domain-agnostic core specification can serve as a stable foundation for multiple domain-specific assistant profiles. ADL~2.0 is designed to subsume tutor- and teammate-oriented specifications, such as those exemplified by TDL and TMDL, without loss of expressiveness.
+
+Third, we claim that explicit boundary specification is essential for trustworthy assistant behavior in both educational and collaborative settings. By elevating boundaries to a mandatory component of the core language, ADL~2.0 seeks to address common failure modes related to overreach, expectation violations, and integrity breaches.
+
+\subsection{Research Hypotheses}
+Based on these design claims, we propose the following research hypotheses for future empirical evaluation.
+
+\paragraph{H1: Role Consistency and Expectation Alignment}
+Assistants specified using ADL~2.0 will exhibit greater role consistency and fewer expectation violations than assistants configured using unstructured or minimally structured prompting approaches. This hypothesis reflects the assumption that explicit role and collaboration specifications reduce ambiguity in assistant behavior.
+
+\paragraph{H2: Boundary Compliance}
+Explicit boundary declarations in ADL~2.0 will lead to improved compliance with domain-specific constraints, such as academic integrity requirements in tutoring contexts or authority limitations in collaborative teamwork scenarios.
+
+\paragraph{H3: Specification Reuse and Authoring Efficiency}
+The use of declarative specialization mechanisms in ADL~2.0 will reduce authoring effort and specification errors when creating families of related assistants, compared to approaches that rely on copy-and-modify practices.
+
+\paragraph{H4: Profile Unification Without Loss of Expressiveness}
+Domain-specific assistant description languages, including tutor- and teammate-oriented specifications, can be expressed as profiles of ADL~2.0 without loss of expressive power. This hypothesis can be evaluated by comparing the completeness and clarity of equivalent assistant specifications expressed directly in domain-specific languages versus as ADL~2.0 profiles.
+
+\subsection{Evaluation Outlook}
+While the validation of these hypotheses is outside the scope of the present paper, they provide a concrete research agenda for future work. Potential evaluation methods include controlled comparisons of assistant behavior, user studies focusing on role clarity and expectation management, and analyses of specification authoring processes. By framing these hypotheses explicitly, ADL~2.0 positions itself as a testable and extensible specification framework rather than a fixed or closed design.
+

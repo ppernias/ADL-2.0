@@ -1,0 +1,55 @@
+% sections/adl2_spec.tex
+
+\section{Core Specification of ADL~2.0}
+\label{sec:adl2_spec}
+
+ADL~2.0 is designed as a minimal and extensible core specification language for describing LLM-based assistants. Rather than targeting a specific application domain, ADL~2.0 defines a common structural foundation upon which domain-specific assistant profiles can be systematically constructed. This section presents the core concepts and structural elements of the language.
+
+\subsection{Design Principles}
+The specification of ADL~2.0 is guided by three overarching principles. First, the language aims to provide a \emph{domain-agnostic core}, capturing assistant properties that are common across educational, collaborative, and other application contexts. Second, ADL~2.0 emphasizes \emph{explicitness}, requiring key aspects of assistant behavior—particularly roles and boundaries—to be declared rather than implied. Third, the language supports \emph{extensibility through specialization}, enabling reuse and controlled variation without modification of the core structure.
+
+These principles reflect lessons learned from the application of ADL~1.0 in the development of tutor- and teammate-oriented specifications, and align ADL~2.0 with established practices in declarative language and configuration design.
+
+\subsection{Overall Structure}
+An ADL~2.0 specification describes an assistant as a structured collection of sections, each addressing a distinct aspect of assistant design. At a high level, the core structure includes:
+
+\begin{itemize}
+    \item \textbf{Metadata}, capturing versioning and descriptive information;
+    \item \textbf{Identity}, defining the assistant as an entity with a stable identity;
+    \item \textbf{Role}, specifying the assistant's functional position and responsibilities;
+    \item \textbf{Collaboration}, describing interaction patterns with users or other agents;
+    \item \textbf{Knowledge and Tools}, delimiting accessible knowledge sources and operational capabilities; and
+    \item \textbf{Boundaries}, explicitly constraining assistant behavior and authority.
+\end{itemize}
+
+While additional sections may be included by specialized profiles, these core components provide a shared structural vocabulary across all ADL~2.0 specifications.
+
+\subsection{Identity and Role Specification}
+The \emph{identity} component defines the assistant as a persistent conceptual entity, independent of any particular execution instance. This includes naming and descriptive elements that support clarity, reuse, and documentation.
+
+The \emph{role} component specifies what the assistant is intended to do within a given context. Roles capture functional intent (e.g., tutor, teammate, reviewer) rather than concrete task implementations. By separating role specification from execution strategies, ADL~2.0 allows the same role definition to be instantiated across different models or deployment environments.
+
+This explicit role declaration is central to reducing ambiguity and expectation violations, particularly in collaborative and educational settings.
+
+\subsection{Collaboration Model}
+The collaboration component defines how the assistant is expected to interact with users and, where applicable, with other agents. This includes interaction styles, turn-taking assumptions, and coordination responsibilities. Rather than prescribing dialogue policies, ADL~2.0 specifies collaboration at a conceptual level, enabling domain-specific profiles to refine interaction protocols as needed.
+
+This abstraction supports both individual-use assistants, such as tutors, and multi-actor settings characteristic of human--AI teaming.
+
+\subsection{Boundaries as Mandatory Specification}
+A defining feature of ADL~2.0 is the treatment of boundaries as a mandatory core element. Boundaries specify what the assistant must not do, the limits of its authority, and conditions under which it should defer to human judgment or external processes.
+
+By making boundaries explicit and structurally required, ADL~2.0 addresses limitations observed in earlier specifications where constraints were embedded implicitly in behavioral descriptions. This design choice reflects the central role of boundary management in preventing overreach, maintaining academic integrity, and supporting trustworthy human--AI collaboration.
+
+\subsection{Extensibility Through Inheritance}
+ADL~2.0 supports extensibility through declarative specialization mechanisms that allow one specification to extend another. This enables the definition of assistant families that share a common core while differing in domain-specific behavior.
+
+Importantly, ADL~2.0 distinguishes between structural validity and semantic interpretation. The language defines the structural constraints of valid specifications, while the resolution of inheritance and the execution semantics are delegated to the implementation environment. This separation allows ADL~2.0 to remain execution-agnostic while supporting reuse and modularity.
+
+\subsection{Schema-Based Validation}
+ADL~2.0 specifications are intended to be validated against an explicit schema that defines required components and allowable structure. Schema-based validation enables early detection of incomplete or inconsistent specifications, supports tool-assisted authoring, and facilitates reproducibility across deployments.
+
+By adopting a schema-driven approach, ADL~2.0 treats assistant descriptions as verifiable design artifacts rather than informal configuration text.
+
+\subsection{Summary}
+ADL~2.0 defines a minimal yet expressive core for assistant specification, balancing generality with explicit support for specialization. By elevating roles, collaboration models, and boundaries to first-class elements, and by supporting inheritance and schema-based validation, ADL~2.0 provides a foundation upon which domain-specific languages such as TDL and TMDL can be consistently and systematically built.

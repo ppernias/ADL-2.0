@@ -1,0 +1,64 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\hypersetup{hidelinks}
+
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=*}
+
+\title{ADL 2.0: A Core Specification Framework for LLM-based Assistants}
+
+\author{
+    \IEEEauthorblockN{Pedro A. Pernías Peco}
+    \IEEEauthorblockA{
+        Departamento de Lenguajes y Sistemas Informáticos\\
+        Universidad de Alicante\\
+        Alicante, España\\
+        p.pernias@ua.es
+    }
+    \and
+    \IEEEauthorblockN{M. Pilar Escobar Esteban}
+    \IEEEauthorblockA{
+        Departamento de Lenguajes y Sistemas Informáticos\\
+        Universidad de Alicante\\
+        Alicante, España\\
+        pilar.escobar@ua.es
+    }
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The increasing deployment of Large Language Models (LLMs) in educational and collaborative settings has shifted the primary challenge from model performance to the systematic specification of assistant behavior. While early approaches relied on unstructured prompting, recent work has highlighted the need for explicit, reusable, and verifiable assistant descriptions. The Assistant Description Language (ADL~1.0) represented an initial step in this direction, and its application in concrete domains led to the development of specialized specifications such as Tutor Description Languages (TDL) and Team Mate Description Languages (TMDL).
+
+This paper introduces \textbf{ADL~2.0}, a refactored core specification framework designed to unify and generalize prior assistant description efforts. ADL~2.0 distills a minimal, domain-agnostic core informed by lessons learned from the practical development of tutor- and teammate-oriented specifications. The language explicitly separates core assistant properties from domain-specific profiles, supports declarative specialization through inheritance, and treats operational boundaries as a mandatory, first-class component of assistant design.
+
+As a specification-focused contribution, this paper does not present empirical evaluations. Instead, it articulates a set of design claims and research hypotheses concerning role clarity, boundary compliance, specification reuse, and the unification of domain-specific assistant descriptions under a shared core framework. By providing a stable and extensible specification foundation, ADL~2.0 aims to support the systematic, reusable, and transparent design of LLM-based assistants across educational and collaborative domains.
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+LLM, specification, ADL, TDL, TMDL
+\end{IEEEkeywords}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/lessons_learned}
+\input{sections/adl2_spec}
+\input{sections/hypotheses}
+\input{sections/conclusion}
+\input{sections/appendix_example}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

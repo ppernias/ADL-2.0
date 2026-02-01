@@ -1,0 +1,49 @@
+% sections/appendix_example.tex
+
+\appendices
+\section{Minimal ADL~2.0 Specification Example}
+\label{app:adl2_example}
+
+This appendix provides a minimal illustrative example of an ADL~2.0 specification. The purpose of this example is not to document the full language, but to convey the overall structure and intent of an ADL~2.0 description. The complete specification, including the formal schema and extended examples, is maintained in an open repository\footnote{\url{https://github.com/ppernias/adl20}}.
+
+\subsection{Illustrative Example}
+
+Listing~\ref{lst:adl2_minimal} shows a simplified ADL~2.0 specification for an educational assistant profile. The example highlights the mandatory core elements of the language, including identity, role, and boundaries, while omitting domain-specific details for brevity.
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}{0.95\linewidth}
+\small
+\begin{verbatim}
+adl_version: "2.0"
+
+metadata:
+  name: "Example Tutor Assistant"
+  description: "Minimal ADL 2.0 example for illustration purposes"
+
+identity:
+  type: "assistant"
+  persistent: true
+
+role:
+  primary_function: "educational_tutor"
+  responsibilities:
+    - "support learner understanding"
+    - "provide formative feedback"
+
+boundaries:
+  must_not:
+    - "provide full solutions to graded assignments"
+    - "misrepresent its role or authority"
+  defer_to_human:
+    - "requests beyond defined tutoring scope"
+\end{verbatim}
+\end{minipage}
+\caption{Minimal illustrative ADL~2.0 specification.}
+\label{lst:adl2_minimal}
+\end{figure}
+
+\subsection{Discussion}
+Despite its simplicity, the example illustrates several defining characteristics of ADL~2.0. First, assistant behavior is specified declaratively through explicit sections rather than embedded in unstructured prompt text. Second, the assistant's role and responsibilities are separated from operational constraints, which are captured explicitly through boundary declarations. Finally, the specification remains independent of any particular language model or execution environment.
+
+More complex assistant profiles, including those corresponding to tutor- and teammate-oriented specifications, can be constructed by extending such core descriptions through declarative specialization mechanisms. Readers are referred to the online repository for the authoritative specification, schema definitions, and additional examples.

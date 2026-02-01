@@ -1,0 +1,21 @@
+\section{Introduction}
+
+Large Language Models (LLMs) are increasingly used to support complex educational and collaborative activities, including tutoring, learning support, and teamwork assistance. As these systems are deployed in diverse and sensitive contexts, the primary challenge has shifted from raw model performance to the \emph{systematic specification of assistant behavior}, including roles, responsibilities, interaction patterns, and operational boundaries.
+
+Early approaches to configuring LLM-based assistants relied primarily on unstructured prompts or ad-hoc templates. While effective for rapid prototyping, such approaches offer limited reproducibility, weak guarantees of role consistency, and poor support for reuse and maintenance. In response, structured approaches to assistant specification have emerged, most notably through the introduction of the Assistant Description Language (ADL~1.0), which provided an initial framework for describing assistants in a declarative manner.
+
+As ADL~1.0 began to be applied in concrete domains, particularly in educational tutoring and collaborative teamwork scenarios, domain-specific extensions emerged. The Tutor Description Language (TDL) and the Team Mate Description Language (TMDL) were developed as specialized instantiations of ADL~1.0, addressing the distinct requirements of educational support and human--AI collaboration respectively. Importantly, TDL and TMDL were not conceived as independent languages, but rather as pragmatic specializations built on top of the original ADL framework. Experience with these specializations highlighted both the strengths and limitations of ADL~1.0, and motivated the need for a clearer separation between core assistant specification constructs and domain-specific concerns.
+
+This paper introduces \textbf{ADL~2.0} as a response to these lessons learned. ADL~2.0 is not proposed as an alternative to TDL or TMDL, but rather as a \emph{refactoring and generalization of the ADL core}, informed by the practical development of domain-specific languages. The goal of ADL~2.0 is to provide a minimal, extensible, and reusable core specification framework upon which domain-specific assistant profiles---including tutors and teammates---can be systematically defined.
+
+The design of ADL~2.0 is guided by four primary goals: (1) \emph{expressiveness}, enabling diverse assistant roles to be specified without loss of domain-specific detail; (2) \emph{modularity and reuse}, supporting inheritance and specialization through declarative mechanisms; (3) \emph{role clarity and boundary enforcement}, making constraints a first-class element of assistant design; and (4) \emph{validation and reproducibility}, through schema-based verification independent of execution engines or underlying models.
+
+This work is positioned as a \emph{specification and design contribution}. It does not report empirical user studies or performance benchmarks. Instead, following the precedent established by prior work on TMDL, the paper articulates a set of design claims and research hypotheses concerning the expected benefits of ADL~2.0, and illustrates its applicability through representative assistant profiles derived from educational and collaborative domains. Empirical validation of these hypotheses is left for future work.
+
+The main contributions of this paper are:
+\begin{itemize}
+    \item the formal definition of ADL~2.0 as a core specification language for LLM-based assistants;
+    \item a principled treatment of boundaries and role constraints as first-class specification elements;
+    \item a demonstration that domain-specific languages such as TDL and TMDL can be expressed as specialized profiles of ADL~2.0 without loss of expressiveness; and
+    \item a research agenda outlining hypotheses and evaluation strategies for future empirical studies.
+\end{itemize}

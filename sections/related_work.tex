@@ -1,0 +1,29 @@
+% sections/related_work.tex
+
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{From Prompting to Structured Assistant Specification}
+Early deployments of LLM-based assistants were primarily configured through free-form prompting, often combining role instructions, behavioral guidelines, and task constraints into a single prompt. While flexible, this approach makes assistant behavior difficult to reproduce, compare, and maintain across contexts. As a result, recent work has emphasized the need for more structured and declarative approaches to assistant configuration.
+
+Several strands of work have explored structured prompting and declarative control of language model behavior. Approaches such as DSPy treat prompt design as a form of declarative programming that can be compiled and optimized \cite{khattab2023dspy}. Industrial guidelines also recommend the use of explicit structural markers (e.g., XML tags) to improve clarity and controllability of prompts \cite{anthropic2024prompting}. More recently, empirical studies have examined the reliability of structured output generation and schema-constrained responses, highlighting both their potential and limitations \cite{geng2025structured, elnashar2025promptstyles}.
+
+Despite these advances, most structured prompting approaches remain focused on output formatting or task execution, rather than on the explicit specification of assistant roles, collaboration patterns, and operational boundaries.
+
+\subsection{ADL and Educational Assistant Specification}
+The Assistant Description Language (ADL~1.0) represents an early effort to treat assistant configuration as a first-class design artifact. ADL~1.0 proposes a declarative architecture in which pedagogical design decisions are explicitly represented and translated into automated tutoring behavior, supporting reuse and systematic assistant construction \cite{pernias2025adl}. This work demonstrates the feasibility of separating pedagogical intent from execution mechanisms, particularly in educational settings.
+
+As ADL~1.0 was applied in practice, the need for more specialized representations became apparent. In educational contexts, tutor-oriented specifications must capture pedagogical strategies such as scaffolding, formative feedback, and controlled disclosure of solutions, while enforcing constraints related to academic integrity. These requirements motivate domain-specific tutor profiles, commonly referred to as Tutor Description Languages (TDL), which can be understood as structured specializations built upon the original ADL framework.
+
+\subsection{Human--AI Teaming and Teammate-Oriented Specifications}
+In parallel, a substantial body of literature has examined human--AI collaboration and the conditions under which AI systems function effectively as teammates rather than tools. Research highlights the importance of role clarity, shared mental models, and explicit interaction norms for effective human--AI teams \cite{bansal2019mental, seeber2020machines}. More recent surveys and conceptual frameworks emphasize boundary management and expectation alignment as central challenges in human--AI teaming \cite{lou2025humanai, gonzalez2023cohumain, gupta2025cohumain}.
+
+These insights have motivated teammate-oriented assistant specifications, often referred to as Team Mate Description Languages (TMDL), which focus on collaboration protocols, division of responsibilities, and behavioral constraints to reduce coordination failures. While such specifications differ in emphasis from tutor-oriented descriptions, they share core structural concerns with ADL-based educational assistants, including role definition, interaction patterns, and boundary enforcement.
+
+\subsection{Schema-Based Validation and Configuration-as-Code}
+A complementary line of work treats system configuration artifacts as machine-checkable specifications. Schema-based validation is widely used in software engineering to enforce structural correctness and support tool-assisted development. Recent benchmarking work has demonstrated both the feasibility and the challenges of enforcing schema-constrained outputs in LLM-based systems \cite{geng2025structured}.
+
+ADL~2.0 adopts a configuration-as-code perspective by defining assistant specifications through an explicit schema with required components and extensibility mechanisms. This approach supports validation independent of execution engines, and aligns with broader trends in declarative system specification while targeting assistant-specific concerns.
+
+\subsection{Positioning of This Work}
+This paper contributes at the level of \emph{language design and specification}. Rather than evaluating assistant performance or learning outcomes, we focus on unifying existing assistant description efforts under a shared core framework. Drawing on lessons learned from applying ADL~1.0 in educational and collaborative contexts, and informed by research on human--AI teaming, ADL~2.0 is proposed as a minimal and extensible specification core capable of supporting both tutor- and teammate-oriented assistant profiles.

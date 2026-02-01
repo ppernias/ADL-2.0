@@ -1,0 +1,29 @@
+% sections/lessons_learned.tex
+
+\section{From ADL~1.0 to ADL~2.0: Design Lessons Learned}
+\label{sec:lessons_learned}
+
+The design of ADL~2.0 is the result of practical experience gained through the development and use of ADL~1.0 in concrete application domains, most notably educational tutoring and human--AI collaboration. In particular, the construction of domain-specific specifications such as Tutor Description Languages (TDL) and Team Mate Description Languages (TMDL) exposed a number of structural limitations in the original ADL design. This section summarizes the main lessons learned and motivates the key design decisions introduced in ADL~2.0.
+
+\subsection{Need for a Clear Separation Between Core and Profile}
+ADL~1.0 provided a unified structure for describing assistants, but in practice it blurred the distinction between core assistant properties and domain-specific concerns. As TDL and TMDL specifications were developed on top of ADL~1.0, it became increasingly difficult to determine which elements belonged to the general assistant description and which were specific to a particular domain or use case.
+
+This lack of separation led to duplicated constructs, ad-hoc conventions, and limited reuse across assistant types. One of the primary lessons learned is the importance of explicitly distinguishing a minimal, domain-agnostic core from domain-specific profiles. ADL~2.0 addresses this issue by defining a stable set of core sections shared by all assistants, while allowing domain-specific behavior to be expressed through specialization rather than structural modification.
+
+\subsection{Extensibility Through Declarative Specialization}
+In ADL~1.0, extending an existing assistant specification often required copying and modifying large portions of the description, increasing the risk of inconsistency and error. This limitation became particularly apparent when creating families of related assistants, such as multiple tutor variants or teammates with slightly different collaboration roles.
+
+Experience with TDL and TMDL highlighted the need for a principled mechanism to support reuse and controlled variation. ADL~2.0 introduces explicit support for declarative specialization through inheritance mechanisms, enabling assistant profiles to extend and refine existing specifications without duplicating shared structure. This design supports modular authoring and aligns assistant specification with established practices in software configuration and language design.
+
+\subsection{Boundaries as a First-Class Design Element}
+A recurring challenge in both educational and collaborative contexts is the management of assistant boundaries. In tutoring scenarios, assistants must respect constraints related to academic integrity, appropriate guidance, and learner autonomy. In collaborative settings, assistants must avoid overstepping their role, making unilateral decisions, or violating user expectations.
+
+In ADL~1.0, such constraints were typically embedded implicitly within behavioral descriptions or prompt text, making them difficult to reason about, validate, or reuse. One of the central lessons learned from TDL and TMDL development is that boundaries must be treated as explicit, first-class elements of assistant design. ADL~2.0 therefore elevates boundary specification to a mandatory component of the core language, ensuring that constraints on assistant behavior are explicitly represented and consistently enforced across profiles.
+
+\subsection{Specification Independent of Execution}
+Another lesson learned concerns the separation between assistant specification and execution. ADL~1.0 descriptions were sometimes implicitly tied to particular execution assumptions or prompting strategies, limiting portability across models and deployment environments. This coupling complicated comparison between assistants and hindered systematic evaluation.
+
+ADL~2.0 adopts a stricter separation between declarative specification and execution semantics. The language defines \emph{what} an assistant is intended to be, rather than \emph{how} it is implemented by a specific language model or runtime system. This separation supports reproducibility, model independence, and future empirical evaluation across different execution engines.
+
+\subsection{Lessons Summary}
+Taken together, these lessons motivate the redesign of ADL as a minimal and extensible core specification language. ADL~2.0 distills common structural elements identified across tutor- and teammate-oriented assistants, while providing explicit mechanisms for specialization, boundary definition, and validation. By addressing the limitations observed in ADL~1.0, ADL~2.0 aims to serve as a stable foundation for future assistant description languages and profiles.
